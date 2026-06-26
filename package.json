@@ -1,0 +1,12 @@
+{
+  "name": "andrei-cristea-resume",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Source for Andrei Cristea's CV. PDF is auto-generated on merge to main.",
+  "scripts": {
+    "build": "node build-pdf.js"
+  },
+  "dependencies": {
+    "puppeteer": "^24.10.0"
+  }
+}

@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  @page { size: A4; margin: 36px 42px; }
+  * { box-sizing: border-box; }
+  body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    color: #1a1a1a;
+    font-size: 10.5px;
+    line-height: 1.45;
+  }
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 16px;
+  }
+  .header h1 {
+    font-size: 32px;
+    margin: 0 0 5px 0;
+    letter-spacing: -0.5px;
+  }
+  .header .title {
+    font-size: 15px;
+    font-style: italic;
+    color: #333;
+    margin: 0 0 9px 0;
+  }
+  .header .contact {
+    font-size: 11px;
+    color: #222;
+  }
+  .header .contact span { margin: 0 4px; color: #999; }
+  .photo {
+    width: 110px;
+    height: 110px;
+    border-radius: 6px;
+    object-fit: cover;
+    flex-shrink: 0;
+  }
+  .section {
+    margin-bottom: 14px;
+  }
+  .section-title {
+    font-size: 14px;
+    font-weight: 700;
+    border-bottom: 1.5px solid #1a1a1a;
+    padding-bottom: 3px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .section-title .icon { font-size: 12px; }
+  .summary p { margin: 0 0 5px 0; }
+  .job {
+    margin-bottom: 14px;
+    padding: 10px 12px 11px 12px;
+    border: 1px solid #ddd;
+    border-left: 4px solid #1a1a1a;
+    border-radius: 4px;
+    background: #fafafa;
+  }
+  .job-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+  .job-co { font-weight: 700; font-size: 12.5px; }
+  .job-role { font-style: italic; color: #333; }
+  .job-date {
+    font-size: 9.5px;
+    color: #444;
+    text-align: right;
+    white-space: nowrap;
+    padding-left: 10px;
+  }
+  .subrole {
+    font-weight: 700;
+    margin-top: 7px;
+    margin-bottom: 2px;
+    font-size: 10.8px;
+  }
+  ul {
+    margin: 2px 0 4px 0;
+    padding-left: 16px;
+  }
+  li { margin-bottom: 2px; }
+  .techstack {
+    margin-top: 4px;
+    font-size: 9.8px;
+  }
+  .techstack b { font-weight: 700; }
+  .subproject {
+    margin: 4px 0 4px 0;
+    padding: 5px 9px;
+    background: #eeeeee;
+    border-left: 2.5px solid #1a1a1a;
+    border-radius: 2px;
+  }
+  .subproject-title {
+    font-weight: 700;
+    font-size: 10.2px;
+    margin-bottom: 3px;
+  }
+  .subproject p { margin: 2px 0; }
+  .job.compact {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+  .two-col {
+    display: flex;
+    gap: 24px;
+  }
+  .two-col .col { flex: 1; }
+  .edu-item, .cert-item {
+    margin-bottom: 3px;
+  }
+  .edu-school { color: #444; font-size: 9.8px; }
+  .edu-date { color: #444; font-size: 9.5px; }
+</style>
+</head>
+<body>
+
+  <div class="header">
+    <div>
+      <h1>Andrei Cristea</h1>
+      <div class="title">AI Agentic Architect &amp; Software Developer</div>
+      <div class="contact">cristea.r.andrei@gmail.com <span>|</span> +40741220600 <span>|</span> Bucharest, Romania</div>
+    </div>
+    <img class="photo" src="assets/photo.jpg" alt="Andrei Cristea">
+  </div>
+
+  <div class="section summary">
+    <div class="section-title">Summary</div>
+    <p>I enjoy a good challenge, working across diverse technologies, and learning new things. My background spans across Backend, Frontend and Mobile development, and automation architecture.</p>
+    <p>In my free time, I love building things with NodeJS, Python, Flutter, and Machine Learning.</p>
+    <p>Recently, my focus has shifted heavily toward AI and Agentic Architecture, where I enjoy exploring, prototyping, and pushing the boundaries of what intelligent, self-directed systems can achieve.</p>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Experience</div>
+
+    <div class="job">
+      <div class="job-row">
+        <div><span class="job-co">EverWorker,</span> <span class="job-role">AI Solution Architect &amp; Software Developer</span></div>
+        <div class="job-date">03/2025 – Present<br>Remote</div>
+      </div>
+
+      <div class="subrole">AI Solution Architect</div>
+      <ul>
+        <li>Design and architect Agentic AI systems that autonomously execute multi-step workflows across enterprise tools.</li>
+        <li>Build scalable architectures combining LLMs, Retrieval-Augmented Generation (RAG), vector search, and structured tool/function calling to enable context-aware reasoning and reliable action-taking.</li>
+        <li>Define prompt frameworks, memory strategies, and orchestration layers that allow AI agents to interact with platforms such as Salesforce, Jira, Confluence, HubSpot, Slack, and Google Workspace.</li>
+        <li>Focus on reliability, determinism, and production-grade execution for real-world business automation.</li>
+      </ul>
+
+      <div class="subproject">
+        <div class="subproject-title">Designed and built EverWorker's official Claude Code Plugin</div>
+        <p>Builders can plan, develop, test, and operate EverWorker Agentic Workflows, AI Workers, Schedules, Webhooks, Code Nodes, Memories, Collections, and more — all from inside Claude Code.</p>
+        <ul>
+          <li>50+ MCP tools covering the full builder surface (CRUD, execute, drill-down), gated by role.</li>
+          <li>Skills for each builder workflow.</li>
+          <li>A custom MongoDB-aggregation tool that lets users perform complex analytics.</li>
+        </ul>
+      </div>
+
+      <div class="subrole">Software Engineer</div>
+      <ul>
+        <li>Contribute directly to the core platform, developing backend services, APIs, and frontend interfaces using JavaScript, ReactJS, and MeteorJS.</li>
+        <li>Build the infrastructure that powers agent execution, integrations, and multi-tenant scalability, emphasizing performance, maintainability, and fault tolerance.</li>
+      </ul>
+
+      <div class="techstack"><b>Tech stack:</b> JavaScript/TypeScript, ReactJS, MeteorJS, Node.js, LLM APIs (OpenAI/Anthropic), RAG, Vector Databases, Tool Calling, REST/GraphQL APIs, Docker, MongoDB</div>
+    </div>
+
+    <div class="job">
+      <div class="job-row">
+        <div><span class="job-co">UiPath,</span> <span class="job-role">Solutions Architect</span></div>
+        <div class="job-date">11/2018 – 03/2025<br>Bucharest, Romania</div>
+      </div>
+      <p style="margin: 4px 0 4px 0;">I started at UiPath as an RPA Developer and transitioned to a Solution Architect role. Over time, I was involved in automation projects for small, medium and large clients, also some internal. I worked with pretty much every product UiPath has, but here are my key RPA specialties:</p>
+      <ul>
+        <li>All areas of Core RPA</li>
+        <li>All functionalities of UiPath Orchestrator and Cloud platform.</li>
+        <li>Integration with any kind of external systems</li>
+        <li>Chatbots</li>
+        <li>ML integration</li>
+        <li>PowerBI integration</li>
+        <li>Custom activities &amp; libraries</li>
+        <li>GitHub CI/CD pipelines</li>
+        <li>Hosting RPA training sessions for UiPath customers</li>
+      </ul>
+      <p style="margin: 4px 0 4px 0;">Since 2024, I've been heavily involved in UiPath's AI initiatives:</p>
+      <ul>
+        <li>I designed, managed and developed an AI project for Intel, which won UiPath's biggest award for 2024: UiPath AI10.</li>
+        <li>I joined the ML team to help build UiPath's Autopilot tools.</li>
+        <li>I was part of UiPath's first Agentic team, working on building the future of UiPath's AI vision.</li>
+      </ul>
+    </div>
+
+    <div class="job compact">
+      <div class="job-row">
+        <div><span class="job-co">ABS Laundry Business Solutions,</span> <span class="job-role">Java Developer &amp; Scrum Master</span></div>
+        <div class="job-date">10/2014 – 11/2018<br>Bucharest, Romania</div>
+      </div>
+      <p style="margin: 4px 0 4px 0;">Currently: Scrum Master + Java &amp; Web Developer for DevOps project. Technologies used on project: Java 8, Spring Boot, Spring MVC, REST, Html, Css, JS, jQuery, Agile. Also involved in new development projects and maintenance &amp; support teams. Technologies used: Java 8, Spring, SOAP, Android, JSP, JSF, Html, Css, JS, Oracle SQL, Agile.</p>
+    </div>
+
+    <div class="job compact">
+      <div class="job-row">
+        <div><span class="job-co">AFY Communications,</span> <span class="job-role">PR Consultant</span></div>
+        <div class="job-date">06/2012 – 10/2014</div>
+      </div>
+    </div>
+
+    <div class="job compact">
+      <div class="job-row">
+        <div><span class="job-co">DallNet,</span> <span class="job-role">IT Support</span></div>
+        <div class="job-date">06/2008 – 08/2008<br>Bucharest</div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="two-col">
+    <div class="col">
+      <div class="section">
+        <div class="section-title">Education</div>
+        <div class="edu-item">
+          <div><b>Engineer's degree, Electrical and Electronics Engineering</b></div>
+          <div class="edu-school">Facultatea de Electronica, Politehnica</div>
+          <div class="edu-date">2010 – 2014</div>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="section">
+        <div class="section-title">Certifications</div>
+        <div class="cert-item">Oracle Certified Associate, Java SE 8 Programmer</div>
+        <div class="cert-item">Cambridge Advanced English (CAE)</div>
+        <div class="cert-item">UiPath Certified Professional Automation Solution Architect Professional Certification</div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

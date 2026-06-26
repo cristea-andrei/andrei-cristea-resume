@@ -1,0 +1,48 @@
+name: Build & Release Resume PDF
+
+# Builds the PDF and publishes a GitHub Release whenever code lands on main
+# (a direct push or a merged pull request both trigger a push to main).
+on:
+  push:
+    branches: [main]
+  workflow_dispatch: {} # allow manual runs from the Actions tab
+
+permissions:
+  contents: write # required to create releases and push tags
+
+concurrency:
+  group: release
+  cancel-in-progress: false
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build PDF
+        run: node build-pdf.js Andrei-Cristea-Resume.pdf
+
+      - name: Compute version
+        id: ver
+        run: echo "tag=v$(date +'%Y.%m.%d').${{ github.run_number }}" >> "$GITHUB_OUTPUT"
+
+      - name: Publish release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release create "${{ steps.ver.outputs.tag }}" \
+            Andrei-Cristea-Resume.pdf \
+            --title "Resume — $(date +'%Y-%m-%d')" \
+            --notes "Auto-generated from \`index.html\` at commit ${{ github.sha }}." \
+            --target "${{ github.sha }}"
