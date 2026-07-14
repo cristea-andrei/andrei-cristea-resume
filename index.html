@@ -2,126 +2,165 @@
 <html>
 <head>
 <meta charset="utf-8">
+<title>Andrei Cristea — Resume</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Serif:wght@600&display=swap" rel="stylesheet">
 <style>
-  @page { size: A4; margin: 36px 42px; }
+  @page { size: A4; margin: 36px 44px; }
   * { box-sizing: border-box; }
-  body {
-    font-family: 'Helvetica Neue', Arial, sans-serif;
-    color: #1a1a1a;
-    font-size: 10.5px;
-    line-height: 1.45;
+  :root {
+    --ink: #16211f;
+    --body: #2b3634;
+    --muted: #5e6d6a;
+    --accent: #0e5f63;
+    --rule: #d5e0de;
+    --panel: #edf4f3;
   }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: 'IBM Plex Sans', Arial, sans-serif;
+    color: var(--body);
+    font-size: 10px;
+    line-height: 1.5;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  /* ---------- header ---------- */
   .header {
     display: flex;
     justify-content: space-between;
-    align-items: flex-start;
-    margin-bottom: 16px;
+    align-items: center;
+    gap: 24px;
+    margin-bottom: 18px;
   }
   .header h1 {
-    font-size: 32px;
-    margin: 0 0 5px 0;
-    letter-spacing: -0.5px;
+    font-family: 'IBM Plex Serif', Georgia, serif;
+    font-weight: 600;
+    font-size: 30px;
+    letter-spacing: -0.3px;
+    color: var(--ink);
+    margin: 0 0 4px 0;
   }
   .header .title {
-    font-size: 15px;
-    font-style: italic;
-    color: #333;
-    margin: 0 0 9px 0;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1.6px;
+    color: var(--accent);
+    margin: 0 0 8px 0;
   }
   .header .contact {
-    font-size: 11px;
-    color: #222;
+    font-size: 10px;
+    color: var(--muted);
   }
-  .header .contact span { margin: 0 4px; color: #999; }
+  .header .contact span { margin: 0 5px; color: var(--rule); }
   .photo {
-    width: 110px;
-    height: 110px;
-    border-radius: 6px;
+    width: 96px;
+    height: 96px;
+    border-radius: 50%;
     object-fit: cover;
     flex-shrink: 0;
+    border: 2.5px solid var(--rule);
+    outline: 1.5px solid var(--accent);
+    outline-offset: 2px;
   }
-  .section {
-    margin-bottom: 14px;
-  }
+
+  /* ---------- sections ---------- */
+  .section { margin-bottom: 16px; }
   .section-title {
-    font-size: 14px;
-    font-weight: 700;
-    border-bottom: 1.5px solid #1a1a1a;
-    padding-bottom: 3px;
-    margin-bottom: 10px;
     display: flex;
     align-items: center;
-    gap: 6px;
+    gap: 10px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 9.5px;
+    font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 0.5px;
+    letter-spacing: 2.5px;
+    color: var(--accent);
+    margin-bottom: 10px;
   }
-  .section-title .icon { font-size: 12px; }
-  .summary p { margin: 0 0 5px 0; }
+  .section-title::after {
+    content: '';
+    flex: 1;
+    border-top: 1px solid var(--rule);
+  }
+  .summary p { margin: 0 0 5px 0; max-width: 640px; }
+
+  /* ---------- jobs ---------- */
   .job {
-    margin-bottom: 14px;
-    padding: 10px 12px 11px 12px;
-    border: 1px solid #ddd;
-    border-left: 4px solid #1a1a1a;
-    border-radius: 4px;
-    background: #fafafa;
+    border-left: 2px solid var(--rule);
+    padding-left: 14px;
+    margin-bottom: 15px;
   }
   .job-row {
     display: flex;
     justify-content: space-between;
     align-items: baseline;
+    gap: 12px;
   }
-  .job-co { font-weight: 700; font-size: 12.5px; }
-  .job-role { font-style: italic; color: #333; }
+  .job-co { font-weight: 700; font-size: 12.5px; color: var(--ink); }
+  .job-role { color: var(--muted); }
+  .job-role::before { content: '— '; color: var(--rule); }
   .job-date {
-    font-size: 9.5px;
-    color: #444;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 8.5px;
+    color: var(--muted);
     text-align: right;
     white-space: nowrap;
-    padding-left: 10px;
+    line-height: 1.6;
   }
   .subrole {
-    font-weight: 700;
-    margin-top: 7px;
+    font-weight: 600;
+    color: var(--ink);
+    margin-top: 8px;
     margin-bottom: 2px;
-    font-size: 10.8px;
+    font-size: 10.5px;
   }
-  ul {
-    margin: 2px 0 4px 0;
-    padding-left: 16px;
-  }
+  ul { margin: 2px 0 4px 0; padding-left: 15px; }
   li { margin-bottom: 2px; }
-  .techstack {
-    margin-top: 4px;
-    font-size: 9.8px;
-  }
-  .techstack b { font-weight: 700; }
+  li::marker { color: var(--accent); }
+  .job p { margin: 4px 0; }
+
   .subproject {
-    margin: 4px 0 4px 0;
-    padding: 5px 9px;
-    background: #eeeeee;
-    border-left: 2.5px solid #1a1a1a;
-    border-radius: 2px;
+    margin: 6px 0;
+    padding: 7px 11px;
+    background: var(--panel);
+    border-left: 2px solid var(--accent);
+    border-radius: 0 3px 3px 0;
   }
   .subproject-title {
-    font-weight: 700;
+    font-weight: 600;
     font-size: 10.2px;
+    color: var(--ink);
     margin-bottom: 3px;
   }
   .subproject p { margin: 2px 0; }
-  .job.compact {
-    page-break-inside: avoid;
-    break-inside: avoid;
+
+  .techstack {
+    margin-top: 5px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 8.4px;
+    color: var(--muted);
+    line-height: 1.6;
   }
-  .two-col {
-    display: flex;
-    gap: 24px;
-  }
+  .techstack b { font-weight: 600; color: var(--accent); }
+
+  .job.compact { page-break-inside: avoid; break-inside: avoid; }
+
+  /* ---------- footer columns ---------- */
+  .two-col { display: flex; gap: 28px; }
   .two-col .col { flex: 1; }
-  .edu-item, .cert-item {
-    margin-bottom: 3px;
+  .edu-item, .cert-item { margin-bottom: 4px; }
+  .edu-item b { color: var(--ink); }
+  .edu-school { color: var(--muted); font-size: 9.5px; }
+  .edu-date {
+    font-family: 'IBM Plex Mono', monospace;
+    color: var(--muted);
+    font-size: 8.5px;
   }
-  .edu-school { color: #444; font-size: 9.8px; }
-  .edu-date { color: #444; font-size: 9.5px; }
 </style>
 </head>
 <body>
@@ -147,7 +186,7 @@
 
     <div class="job">
       <div class="job-row">
-        <div><span class="job-co">EverWorker,</span> <span class="job-role">AI Solution Architect &amp; Software Developer</span></div>
+        <div><span class="job-co">EverWorker</span> <span class="job-role">AI Solution Architect &amp; Software Developer</span></div>
         <div class="job-date">03/2025 – Present<br>Remote</div>
       </div>
 
@@ -180,10 +219,10 @@
 
     <div class="job">
       <div class="job-row">
-        <div><span class="job-co">UiPath,</span> <span class="job-role">Solutions Architect</span></div>
+        <div><span class="job-co">UiPath</span> <span class="job-role">Solutions Architect</span></div>
         <div class="job-date">11/2018 – 03/2025<br>Bucharest, Romania</div>
       </div>
-      <p style="margin: 4px 0 4px 0;">I started at UiPath as an RPA Developer and transitioned to a Solution Architect role. Over time, I was involved in automation projects for small, medium and large clients, also some internal. I worked with pretty much every product UiPath has, but here are my key RPA specialties:</p>
+      <p>I started at UiPath as an RPA Developer and transitioned to a Solution Architect role. Over time, I was involved in automation projects for small, medium and large clients, also some internal. I worked with pretty much every product UiPath has, but here are my key RPA specialties:</p>
       <ul>
         <li>All areas of Core RPA</li>
         <li>All functionalities of UiPath Orchestrator and Cloud platform.</li>
@@ -195,7 +234,7 @@
         <li>GitHub CI/CD pipelines</li>
         <li>Hosting RPA training sessions for UiPath customers</li>
       </ul>
-      <p style="margin: 4px 0 4px 0;">Since 2024, I've been heavily involved in UiPath's AI initiatives:</p>
+      <p>Since 2024, I've been heavily involved in UiPath's AI initiatives:</p>
       <ul>
         <li>I designed, managed and developed an AI project for Intel, which won UiPath's biggest award for 2024: UiPath AI10.</li>
         <li>I joined the ML team to help build UiPath's Autopilot tools.</li>
@@ -205,22 +244,22 @@
 
     <div class="job compact">
       <div class="job-row">
-        <div><span class="job-co">ABS Laundry Business Solutions,</span> <span class="job-role">Java Developer &amp; Scrum Master</span></div>
+        <div><span class="job-co">ABS Laundry Business Solutions</span> <span class="job-role">Java Developer &amp; Scrum Master</span></div>
         <div class="job-date">10/2014 – 11/2018<br>Bucharest, Romania</div>
       </div>
-      <p style="margin: 4px 0 4px 0;">Currently: Scrum Master + Java &amp; Web Developer for DevOps project. Technologies used on project: Java 8, Spring Boot, Spring MVC, REST, Html, Css, JS, jQuery, Agile. Also involved in new development projects and maintenance &amp; support teams. Technologies used: Java 8, Spring, SOAP, Android, JSP, JSF, Html, Css, JS, Oracle SQL, Agile.</p>
+      <p>Currently: Scrum Master + Java &amp; Web Developer for DevOps project. Technologies used on project: Java 8, Spring Boot, Spring MVC, REST, Html, Css, JS, jQuery, Agile. Also involved in new development projects and maintenance &amp; support teams. Technologies used: Java 8, Spring, SOAP, Android, JSP, JSF, Html, Css, JS, Oracle SQL, Agile.</p>
     </div>
 
     <div class="job compact">
       <div class="job-row">
-        <div><span class="job-co">AFY Communications,</span> <span class="job-role">PR Consultant</span></div>
+        <div><span class="job-co">AFY Communications</span> <span class="job-role">PR Consultant</span></div>
         <div class="job-date">06/2012 – 10/2014</div>
       </div>
     </div>
 
     <div class="job compact">
       <div class="job-row">
-        <div><span class="job-co">DallNet,</span> <span class="job-role">IT Support</span></div>
+        <div><span class="job-co">DallNet</span> <span class="job-role">IT Support</span></div>
         <div class="job-date">06/2008 – 08/2008<br>Bucharest</div>
       </div>
     </div>
