@@ -5,31 +5,41 @@ PDF you probably want is attached to the latest [release](../../releases/latest)
 
 ## 📄 Get the PDF
 
-Download `Andrei-Cristea-Resume.pdf` from the
-**[latest release](../../releases/latest)**. A new release is published
-automatically every time a change lands on `main`.
+Download the PDFs from the **[latest release](../../releases/latest)**:
+
+- `Andrei-Cristea-Resume-EN.pdf` — English
+- `Andrei-Cristea-Resume-RO.pdf` — Romanian
+
+A new release is published automatically every time a change lands on `main`.
 
 ## ✏️ Editing the resume
 
-Everything lives in [`index.html`](./index.html) — a single, self-contained
-file styled for A4 print. The profile photo is [`assets/photo.jpg`](./assets/photo.jpg).
+The resume exists in two self-contained files styled for A4 print, sharing the
+same design:
 
-1. Edit `index.html` (and/or swap `assets/photo.jpg`).
-2. Open it in a browser to preview.
+- [`index.html`](./index.html) — English
+- [`index.ro.html`](./index.ro.html) — Romanian
+
+The profile photo is [`assets/photo.jpg`](./assets/photo.jpg).
+
+1. Edit the relevant file(s) — keep both languages in sync when changing content.
+2. Open in a browser to preview.
 3. Commit to `main` (directly or via a merged PR).
 
 ## 🤖 How releases work
 
 On every push to `main`, [`.github/workflows/release.yml`](./.github/workflows/release.yml):
 
-1. Renders `index.html` to PDF with headless Chrome (Puppeteer), honoring the
-   `@page` A4 layout — identical to Chrome's *Print to PDF*.
+1. Renders `index.html` and `index.ro.html` to PDF with headless Chrome
+   (Puppeteer), honoring the `@page` A4 layout — identical to Chrome's
+   *Print to PDF*.
 2. Tags the commit `vYYYY.MM.DD.<run-number>` (e.g. `v2026.06.26.1`).
-3. Creates a GitHub Release with that tag and attaches the PDF.
+3. Creates a GitHub Release with that tag and attaches both PDFs.
 
-## 🛠️ Build the PDF locally
+## 🛠️ Build the PDFs locally
 
 ```bash
 npm install
-npm run build      # writes Andrei-Cristea-Resume.pdf
+node build-pdf.js Andrei-Cristea-Resume-EN.pdf index.html      # English
+node build-pdf.js Andrei-Cristea-Resume-RO.pdf index.ro.html   # Romanian
 ```

@@ -4,7 +4,7 @@
   "private": true,
   "description": "Source for Andrei Cristea's CV. PDF is auto-generated on merge to main.",
   "scripts": {
-    "build": "node build-pdf.js"
+    "build": "node build-pdf.js Andrei-Cristea-Resume-EN.pdf index.html && node build-pdf.js Andrei-Cristea-Resume-RO.pdf index.ro.html"
   },
   "dependencies": {
     "puppeteer": "^24.10.0"
