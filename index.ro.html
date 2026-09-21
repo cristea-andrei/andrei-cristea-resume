@@ -5,326 +5,400 @@
 <title>Andrei Cristea — CV</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Serif:wght@600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
 <style>
-  @page { size: A4; margin: 36px 44px; }
+  @page { size: A4; margin: 30px 36px; }
   * { box-sizing: border-box; }
   :root {
-    --ink: #16211f;
+    --ink: #10201f;
+    --ink-2: #1b302e;
     --body: #2b3634;
     --muted: #5e6d6a;
     --accent: #0e5f63;
+    --accent-bright: #2dd4bf;
     --rule: #d5e0de;
-    --panel: #edf4f3;
+    --panel: #f1f6f5;
+    --card: #ffffff;
+    --chip: #e6f0ef;
   }
   html, body { margin: 0; padding: 0; }
   body {
     font-family: 'IBM Plex Sans', Arial, sans-serif;
     color: var(--body);
-    font-size: 10px;
-    line-height: 1.5;
+    font-size: 9.8px;
+    line-height: 1.48;
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
   }
+  .mono { font-family: 'IBM Plex Mono', monospace; }
 
-  /* ---------- header ---------- */
-  .header {
+  /* ---------- header block ---------- */
+  .hero {
+    background: var(--ink);
+    color: #e6efee;
+    border-radius: 8px;
+    padding: 18px 22px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 24px;
-    margin-bottom: 18px;
+    gap: 20px;
+    position: relative;
+    overflow: hidden;
+    break-inside: avoid; page-break-inside: avoid;
   }
-  .header h1 {
-    font-family: 'IBM Plex Serif', Georgia, serif;
-    font-weight: 600;
-    font-size: 30px;
-    letter-spacing: -0.3px;
-    color: var(--ink);
-    margin: 0 0 4px 0;
+  .hero::before {
+    /* faint grid texture */
+    content: '';
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px);
+    background-size: 16px 16px;
   }
-  .header .title {
+  .hero > * { position: relative; }
+  .hero h1 {
+    font-weight: 700;
+    font-size: 27px;
+    letter-spacing: -0.4px;
+    color: #fff;
+    margin: 0 0 2px 0;
+  }
+  .hero .title {
     font-family: 'IBM Plex Mono', monospace;
     font-size: 10px;
     font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: 1.6px;
-    color: var(--accent);
-    margin: 0 0 8px 0;
-  }
-  .header .contact {
-    font-size: 10px;
-    color: var(--muted);
-  }
-  .header .contact span { margin: 0 5px; color: var(--rule); }
-  .photo {
-    width: 96px;
-    height: 96px;
-    border-radius: 50%;
-    object-fit: cover;
-    flex-shrink: 0;
-    border: 2.5px solid var(--rule);
-    outline: 1.5px solid var(--accent);
-    outline-offset: 2px;
-  }
-
-  /* ---------- sections ---------- */
-  .section { margin-bottom: 16px; }
-  .section-title {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 9.5px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 2.5px;
-    color: var(--accent);
+    color: var(--accent-bright);
+    letter-spacing: .6px;
     margin-bottom: 10px;
   }
-  .section-title::after {
-    content: '';
-    flex: 1;
-    border-top: 1px solid var(--rule);
+  .hero .title::before { content: '> '; opacity: .7; }
+  .hero .title::after { content: '_'; opacity: .7; }
+  .contact { display: flex; flex-wrap: wrap; gap: 6px; }
+  .contact span {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 8.4px;
+    padding: 3px 8px;
+    border: 1px solid rgba(255,255,255,.18);
+    border-radius: 4px;
+    color: #cfdbd9;
+    background: rgba(255,255,255,.04);
   }
-  .summary p { margin: 0 0 5px 0; max-width: 640px; }
+  .photo {
+    width: 84px; height: 84px; border-radius: 50%; object-fit: cover; flex-shrink: 0;
+    border: 2px solid var(--accent-bright);
+    outline: 4px solid rgba(45,212,191,.18);
+  }
+
+  /* ---------- cards ---------- */
+  .card {
+    background: var(--card);
+    border: 1px solid var(--rule);
+    border-radius: 7px;
+    margin-top: 12px;
+    overflow: hidden;
+  }
+  .card.keep { break-inside: avoid; page-break-inside: avoid; }
+  .card-head {
+    display: flex; align-items: center; gap: 10px;
+    background: var(--panel);
+    border-bottom: 1px solid var(--rule);
+    padding: 6px 12px;
+    break-after: avoid; page-break-after: avoid;
+  }
+  .card-head .idx {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 8.5px; font-weight: 600;
+    color: var(--accent-bright);
+    background: var(--ink);
+    padding: 1px 6px; border-radius: 3px;
+  }
+  .card-head .name {
+    font-weight: 700; font-size: 11.5px; color: var(--ink);
+    letter-spacing: .1px;
+  }
+  .card-head .name::before { content: '// '; color: var(--accent); font-family: 'IBM Plex Mono', monospace; font-weight: 500; }
+  .card-head .meta {
+    margin-left: auto;
+    font-family: 'IBM Plex Mono', monospace; font-size: 8px; color: var(--muted); letter-spacing: .4px;
+  }
+  .card-body { padding: 9px 12px 10px; }
+  .card-body p { margin: 0 0 5px 0; }
+  .card-body p:last-child { margin-bottom: 0; }
+
+  /* ---------- chips ---------- */
+  .chips { display: flex; flex-wrap: wrap; gap: 4px; }
+  .chip {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 8.2px; line-height: 1;
+    padding: 4px 7px;
+    border-radius: 4px;
+    background: var(--chip);
+    color: var(--ink-2);
+    border: 1px solid #d3e2e0;
+    white-space: nowrap;
+  }
+  .chip.soft { background: transparent; color: var(--muted); border-style: dashed; }
+  .chip.hot { background: var(--accent); color: #fff; border-color: var(--accent); }
+
+  /* stack grid */
+  .stack-row { display: flex; gap: 12px; align-items: flex-start; padding: 5px 0; border-top: 1px dashed var(--rule); }
+  .stack-row:first-child { border-top: 0; padding-top: 0; }
+  .stack-row:last-child { padding-bottom: 0; }
+  .stack-label {
+    flex: 0 0 112px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 8.2px; font-weight: 600; letter-spacing: .6px; text-transform: uppercase;
+    color: var(--accent); padding-top: 4px;
+  }
+  .stack-val { flex: 1; }
+  .stack-note { font-size: 8.8px; color: var(--muted); margin-top: 3px; }
 
   /* ---------- jobs ---------- */
   .job {
-    border-left: 2px solid var(--rule);
-    padding-left: 14px;
-    margin-bottom: 15px;
-  }
-  .job-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    gap: 12px;
-  }
-  .job-co { font-weight: 700; font-size: 12.5px; color: var(--ink); }
-  .job-role { color: var(--muted); }
-  .job-role::before { content: '— '; color: var(--rule); }
-  .job-date {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 8.5px;
-    color: var(--muted);
-    text-align: right;
-    white-space: nowrap;
-    line-height: 1.6;
-  }
-  .subrole {
-    font-weight: 600;
-    color: var(--ink);
     margin-top: 8px;
-    margin-bottom: 2px;
-    font-size: 10.5px;
+    border: 1px solid var(--rule);
+    border-radius: 7px;
+    overflow: hidden;
+    background: var(--card);
+    break-inside: avoid; page-break-inside: avoid;
   }
-  ul { margin: 2px 0 4px 0; padding-left: 15px; }
+  .job.plain { padding: 8px 12px 10px; }
+  .card.bar { break-after: avoid; page-break-after: avoid; }
+  .card.bar .card-head { border-bottom: 0; }
+  .job-head {
+    display: flex; align-items: center; gap: 10px;
+    padding: 7px 12px;
+    background: var(--ink);
+    color: #fff;
+    break-after: avoid; page-break-after: avoid;
+  }
+  .job-head .co { font-weight: 700; font-size: 11.5px; }
+  .job-head .role { color: var(--accent-bright); font-family: 'IBM Plex Mono', monospace; font-size: 8.8px; }
+  .job-head .role::before { content: '@ '; opacity: .6; }
+  .job-head .when {
+    margin-left: auto; text-align: right;
+    font-family: 'IBM Plex Mono', monospace; font-size: 8.2px; color: #b9c9c6; line-height: 1.4;
+  }
+  .job-head .when b { color: #fff; font-weight: 600; }
+  .job-head.light { background: var(--panel); color: var(--ink); }
+  .job-head.light .role { color: var(--accent); }
+  .job-head.light .when { color: var(--muted); }
+  .job-head.light .when b { color: var(--ink); }
+  .job-body { padding: 8px 12px 10px; }
+  .subrole {
+    display: inline-block;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 8px; font-weight: 600; letter-spacing: .8px; text-transform: uppercase;
+    color: var(--accent);
+    border-left: 3px solid var(--accent);
+    padding-left: 6px;
+    margin: 6px 0 3px;
+    break-after: avoid; page-break-after: avoid;
+  }
+  ul { margin: 2px 0 4px 0; padding-left: 14px; }
   li { margin-bottom: 2px; }
   li::marker { color: var(--accent); }
-  .job p { margin: 4px 0; }
+  ul.cols { columns: 2; column-gap: 22px; }
+  ul.cols li { break-inside: avoid; }
 
   .subproject {
-    margin: 6px 0;
-    padding: 7px 11px;
+    margin: 7px 0;
+    padding: 8px 11px;
     background: var(--panel);
-    border-left: 2px solid var(--accent);
-    border-radius: 0 3px 3px 0;
+    border: 1px solid var(--rule);
+    border-left: 3px solid var(--accent);
+    border-radius: 4px;
+    break-inside: avoid; page-break-inside: avoid;
   }
-  .subproject-title {
-    font-weight: 600;
-    font-size: 10.2px;
-    color: var(--ink);
-    margin-bottom: 3px;
-  }
+  .subproject-title { font-weight: 700; font-size: 10px; color: var(--ink); margin-bottom: 2px; }
+  .subproject-title::before { content: '★ '; color: var(--accent); }
   .subproject p { margin: 2px 0; }
 
-  .techstack {
-    margin-top: 5px;
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 8.4px;
-    color: var(--muted);
-    line-height: 1.6;
-  }
-  .techstack b { font-weight: 600; color: var(--accent); }
+  .techstack { margin-top: 7px; display: flex; gap: 6px; align-items: flex-start; flex-wrap: wrap; }
+  .techstack .k { font-family: 'IBM Plex Mono', monospace; font-size: 8px; font-weight: 600; color: var(--muted); padding-top: 4px; letter-spacing: .5px; }
 
-  .job.compact { page-break-inside: avoid; break-inside: avoid; }
+  .earlier { display: flex; gap: 8px; flex-wrap: wrap; }
+  .earlier .row {
+    flex: 1 1 45%;
+    display: flex; justify-content: space-between; gap: 10px; align-items: baseline;
+    padding: 5px 10px; border: 1px dashed var(--rule); border-radius: 4px;
+  }
+  .earlier .co { font-weight: 600; color: var(--ink); }
+  .earlier .role { color: var(--muted); }
+  .earlier .role::before { content: ' · '; color: var(--rule); }
+  .earlier .when { font-family: 'IBM Plex Mono', monospace; font-size: 8px; color: var(--muted); white-space: nowrap; }
 
-  /* ---------- stack grid ---------- */
-  .stack { page-break-inside: avoid; break-inside: avoid; }
-  .stack-row {
-    display: flex;
-    gap: 12px;
-    align-items: baseline;
-    margin-bottom: 4px;
-  }
-  .stack-label {
-    flex: 0 0 104px;
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 8.4px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.9px;
-    color: var(--accent);
-    line-height: 1.7;
-  }
-  .stack-val { flex: 1; font-size: 9.6px; }
-  .stack-val i { font-style: normal; color: var(--muted); }
-
-  /* ---------- footer columns ---------- */
-  .two-col { display: flex; gap: 28px; }
-  .two-col .col { flex: 1; }
-  .edu-item, .cert-item { margin-bottom: 4px; }
-  .edu-item b { color: var(--ink); }
-  .edu-school { color: var(--muted); font-size: 9.5px; }
-  .edu-date {
-    font-family: 'IBM Plex Mono', monospace;
-    color: var(--muted);
-    font-size: 8.5px;
-  }
+  /* ---------- bottom grid ---------- */
+  .grid2 { display: flex; gap: 12px; break-inside: avoid; page-break-inside: avoid; }
+  .grid2 .card { flex: 1; }
+  .edu b { color: var(--ink); font-size: 10px; }
+  .edu .school { color: var(--muted); }
+  .edu .when { font-family: 'IBM Plex Mono', monospace; font-size: 8.2px; color: var(--muted); }
+  .certs { list-style: none; padding: 0; margin: 0; }
+  .certs li { padding: 3px 0; border-top: 1px dashed var(--rule); }
+  .certs li:first-child { border-top: 0; padding-top: 0; }
+  .certs li::before { content: '✓'; font-family: 'IBM Plex Mono', monospace; color: var(--accent); font-weight: 600; margin-right: 6px; }
 </style>
 </head>
 <body>
 
-  <div class="header">
+  <div class="hero">
     <div>
       <h1>Andrei Cristea</h1>
       <div class="title">AI Agentic Architect &amp; Software Developer</div>
-      <div class="contact">cristea.r.andrei@gmail.com <span>|</span> +40741220600 <span>|</span> București, România</div>
+      <div class="contact">
+        <span>cristea.r.andrei@gmail.com</span>
+        <span>+40 741 220 600</span>
+        <span>București, România</span>
+      </div>
     </div>
     <img class="photo" src="assets/photo.jpg" alt="Andrei Cristea">
   </div>
 
-  <div class="section summary">
-    <div class="section-title">Profil</div>
-    <p>Îmi plac provocările, munca cu tehnologii diverse și învățarea de lucruri noi. Experiența mea acoperă dezvoltarea Backend, Frontend și Mobile, precum și arhitectura de automatizare.</p>
-    <p>În timpul liber, îmi place să construiesc lucruri cu NodeJS, Python, Flutter și Machine Learning.</p>
-    <p>Recent, m-am concentrat puternic pe AI și Arhitectură Agentică, unde îmi place să explorez, să prototipez și să împing limitele a ceea ce pot realiza sistemele inteligente și autonome.</p>
-  </div>
-
-  <div class="section stack">
-    <div class="section-title">Stack AI &amp; Agentic</div>
-    <div class="stack-row">
-      <div class="stack-label">AWS AI</div>
-      <div class="stack-val">Amazon Bedrock (acces la modele, Converse API, Knowledge Bases, Guardrails), Bedrock AgentCore (Runtime, Memory, Gateway, Identity), Strands Agents SDK — agenți prototip construiți cap-coadă pe acest stack.</div>
-    </div>
-    <div class="stack-row">
-      <div class="stack-label">SDK &amp; Frameworks</div>
-      <div class="stack-val">Anthropic Agent SDK, Model Context Protocol (MCP), plugin-uri și skill-uri Claude Code, API-uri OpenAI. <i>Familiarizat cu LangChain, LangGraph și CrewAI.</i></div>
-    </div>
-    <div class="stack-row">
-      <div class="stack-label">Tipare agentice</div>
-      <div class="stack-val">Orchestrare multi-agent, tool/function calling, bucle planner–executor, gestionarea memoriei și a stării, structured outputs, guardrails, human-in-the-loop, evaluare și tracing.</div>
-    </div>
-    <div class="stack-row">
-      <div class="stack-label">Retrieval &amp; Date</div>
-      <div class="stack-val">Pipeline-uri RAG, embeddings și căutare vectorială, strategii de chunking și re-ranking, MongoDB, OpenSearch.</div>
+  <div class="card keep">
+    <div class="card-head"><span class="idx">01</span><span class="name">Profil</span></div>
+    <div class="card-body">
+      <p>Îmi plac proiectele imposibile și să învăț lucruri noi. După 12 ani în backend, frontend, mobile și RPA, îmi petrec acum aproape tot timpul cu AI și Sisteme Agentic: proiectare, prototipuri și agenți reali și utili în platforme enterprise.</p>
+      <p>Highlights: Premiul UiPath AI10 în 2024 pentru proiectul Intel și plugin-ul oficial Claude Code – EverWorker.</p>
     </div>
   </div>
 
-  <div class="section">
-    <div class="section-title">Experiență</div>
-
-    <div class="job">
-      <div class="job-row">
-        <div><span class="job-co">EverWorker</span> <span class="job-role">AI Solution Architect &amp; Software Developer</span></div>
-        <div class="job-date">03/2025 – Prezent<br>Remote</div>
+  <div class="card keep">
+    <div class="card-head"><span class="idx">02</span><span class="name">Stack AI &amp; Agentic</span><span class="meta">hands-on · producție &amp; prototipuri</span></div>
+    <div class="card-body">
+      <div class="stack-row">
+        <div class="stack-label">AWS AI</div>
+        <div class="stack-val">
+          <div class="chips"><span class="chip">Amazon Bedrock</span><span class="chip">Converse API</span><span class="chip">Knowledge Bases</span><span class="chip">Guardrails</span><span class="chip">AgentCore Runtime</span><span class="chip">AgentCore Memory</span><span class="chip">AgentCore Gateway</span><span class="chip">AgentCore Identity</span><span class="chip">Strands Agents SDK</span></div>
+          <div class="stack-note">Agenți prototip construiți cap-coadă pe acest stack.</div>
+        </div>
       </div>
-
-      <div class="subrole">AI Solution Architect</div>
-      <ul>
-        <li>Proiectez și arhitecturez sisteme AI agentice care execută autonom fluxuri de lucru în mai mulți pași, integrate cu instrumente enterprise.</li>
-        <li>Construiesc arhitecturi scalabile care combină LLM-uri, Retrieval-Augmented Generation (RAG), căutare vectorială și apelarea structurată de instrumente/funcții pentru a permite raționament contextual și acțiuni fiabile.</li>
-        <li>Definesc framework-uri de prompt-uri, strategii de memorie și straturi de orchestrare care permit agenților AI să interacționeze cu platforme precum Salesforce, Jira, Confluence, HubSpot, Slack și Google Workspace.</li>
-        <li>Mă concentrez pe fiabilitate, determinism și execuție la nivel de producție pentru automatizarea reală a proceselor de business.</li>
-      </ul>
-
-      <div class="subproject">
-        <div class="subproject-title">Am proiectat și construit plugin-ul oficial Claude Code al EverWorker</div>
-        <p>Builderii pot planifica, dezvolta, testa și opera EverWorker Agentic Workflows, AI Workers, Schedules, Webhooks, Code Nodes, Memories, Collections și altele — totul din interiorul Claude Code.</p>
-        <ul>
-          <li>Peste 50 de instrumente MCP care acoperă întreaga suprafață de lucru (CRUD, execuție, drill-down), controlate pe bază de rol.</li>
-          <li>Skill-uri pentru fiecare flux de lucru al builderului.</li>
-          <li>Un instrument personalizat de agregare MongoDB care permite utilizatorilor să realizeze analize complexe.</li>
-        </ul>
+      <div class="stack-row">
+        <div class="stack-label">SDK &amp; Frameworks</div>
+        <div class="stack-val">
+          <div class="chips"><span class="chip">Anthropic Agent SDK</span><span class="chip">Model Context Protocol (MCP)</span><span class="chip">Plugin-uri &amp; skill-uri Claude Code</span><span class="chip">API-uri OpenAI</span><span class="chip soft">LangChain</span><span class="chip soft">LangGraph</span><span class="chip soft">CrewAI</span></div>
+        </div>
       </div>
-
-      <div class="subrole">Software Engineer</div>
-      <ul>
-        <li>Contribui direct la platforma de bază, dezvoltând servicii backend, API-uri și interfețe frontend folosind JavaScript, ReactJS și MeteorJS.</li>
-        <li>Construiesc infrastructura care alimentează execuția agenților, integrările și scalabilitatea multi-tenant, punând accent pe performanță, mentenabilitate și toleranță la erori.</li>
-      </ul>
-
-      <div class="techstack"><b>Tehnologii:</b> JavaScript/TypeScript, ReactJS, MeteorJS, Node.js, LLM APIs (OpenAI/Anthropic), RAG, Vector Databases, Tool Calling, REST/GraphQL APIs, Docker, MongoDB</div>
-    </div>
-
-    <div class="job">
-      <div class="job-row">
-        <div><span class="job-co">UiPath</span> <span class="job-role">Solutions Architect</span></div>
-        <div class="job-date">11/2018 – 03/2025<br>București, România</div>
+      <div class="stack-row">
+        <div class="stack-label">Tipare agentice</div>
+        <div class="stack-val">
+          <div class="chips"><span class="chip">Orchestrare multi-agent</span><span class="chip">Tool / function calling</span><span class="chip">Bucle planner–executor</span><span class="chip">Memorie &amp; stare</span><span class="chip">Structured outputs</span><span class="chip">Guardrails</span><span class="chip">Human-in-the-loop</span><span class="chip">Evaluare &amp; tracing</span></div>
+        </div>
       </div>
-      <p>Am început la UiPath ca RPA Developer și am trecut apoi în rolul de Solutions Architect. De-a lungul timpului, am fost implicat în proiecte de automatizare pentru clienți mici, medii și mari, precum și în proiecte interne. Am lucrat cu aproape toate produsele UiPath, dar acestea sunt principalele mele specializări RPA:</p>
-      <ul>
-        <li>Toate ariile Core RPA</li>
-        <li>Toate funcționalitățile UiPath Orchestrator și ale platformei Cloud.</li>
-        <li>Integrare cu orice tip de sisteme externe</li>
-        <li>Chatbot-uri</li>
-        <li>Integrare ML</li>
-        <li>Integrare PowerBI</li>
-        <li>Activități și biblioteci personalizate</li>
-        <li>Pipeline-uri CI/CD în GitHub</li>
-        <li>Susținerea de sesiuni de training RPA pentru clienții UiPath</li>
-      </ul>
-      <p>Din 2024, am fost puternic implicat în inițiativele AI ale UiPath:</p>
-      <ul>
-        <li>Am proiectat, gestionat și dezvoltat un proiect AI pentru Intel, care a câștigat cel mai important premiu UiPath din 2024: UiPath AI10.</li>
-        <li>M-am alăturat echipei de ML pentru a ajuta la construirea instrumentelor Autopilot ale UiPath.</li>
-        <li>Am făcut parte din prima echipă Agentică a UiPath, lucrând la construirea viitorului viziunii AI a companiei.</li>
-      </ul>
-    </div>
-
-    <div class="job compact">
-      <div class="job-row">
-        <div><span class="job-co">ABS Laundry Business Solutions</span> <span class="job-role">Java Developer &amp; Scrum Master</span></div>
-        <div class="job-date">10/2014 – 11/2018<br>București, România</div>
-      </div>
-      <p>Scrum Master + Dezvoltator Java &amp; Web pentru un proiect DevOps. Tehnologii folosite în proiect: Java 8, Spring Boot, Spring MVC, REST, Html, Css, JS, jQuery, Agile. De asemenea, implicat în proiecte noi de dezvoltare și în echipe de mentenanță și suport. Tehnologii folosite: Java 8, Spring, SOAP, Android, JSP, JSF, Html, Css, JS, Oracle SQL, Agile.</p>
-    </div>
-
-    <div class="job compact">
-      <div class="job-row">
-        <div><span class="job-co">AFY Communications</span> <span class="job-role">PR Consultant</span></div>
-        <div class="job-date">06/2012 – 10/2014</div>
-      </div>
-    </div>
-
-    <div class="job compact">
-      <div class="job-row">
-        <div><span class="job-co">DallNet</span> <span class="job-role">IT Support</span></div>
-        <div class="job-date">06/2008 – 08/2008<br>București</div>
-      </div>
-    </div>
-
-  </div>
-
-  <div class="two-col">
-    <div class="col">
-      <div class="section">
-        <div class="section-title">Educație</div>
-        <div class="edu-item">
-          <div><b>Diplomă de Inginer, Inginerie Electrică și Electronică</b></div>
-          <div class="edu-school">Facultatea de Electronică, Politehnica</div>
-          <div class="edu-date">2010 – 2014</div>
+      <div class="stack-row">
+        <div class="stack-label">Retrieval &amp; Date</div>
+        <div class="stack-val">
+          <div class="chips"><span class="chip">Pipeline-uri RAG</span><span class="chip">Embeddings &amp; căutare vectorială</span><span class="chip">Chunking &amp; re-ranking</span><span class="chip">MongoDB</span><span class="chip">OpenSearch</span></div>
         </div>
       </div>
     </div>
-    <div class="col">
-      <div class="section">
-        <div class="section-title">Certificări</div>
-        <div class="cert-item">Cambridge Advanced English (CAE)</div>
-        <div class="cert-item">Oracle Certified Associate, Java SE 8 Programmer</div>
-        <div class="cert-item">UiPath Certified RPA Developer</div>
-        <div class="cert-item">UiPath Certified RPA Solution Architect</div>
+  </div>
+
+  <div class="card bar">
+    <div class="card-head"><span class="idx">03</span><span class="name">Experiență</span><span class="meta">2014 → prezent</span></div>
+  </div>
+
+      <div class="job">
+        <div class="job-head">
+          <span class="co">EverWorker</span>
+          <span class="role">AI Solution Architect &amp; Software Developer</span>
+          <span class="when"><b>03/2025 – Prezent</b><br>Remote</span>
+        </div>
+        <div class="job-body">
+          <div class="subrole">AI Solution Architect</div>
+          <ul>
+            <li>Proiectez și arhitecturez sisteme AI agentice care execută autonom fluxuri de lucru în mai mulți pași, integrate cu instrumente enterprise.</li>
+            <li>Construiesc arhitecturi scalabile care combină LLM-uri, Retrieval-Augmented Generation (RAG), căutare vectorială și apelarea structurată de instrumente/funcții pentru a permite raționament contextual și acțiuni fiabile.</li>
+            <li>Definesc framework-uri de prompt-uri, strategii de memorie și straturi de orchestrare care permit agenților AI să interacționeze cu platforme precum Salesforce, Jira, Confluence, HubSpot, Slack și Google Workspace.</li>
+            <li>Mă concentrez pe fiabilitate, determinism și execuție la nivel de producție pentru automatizarea reală a proceselor de business.</li>
+          </ul>
+
+          <div class="subproject">
+            <div class="subproject-title">Am proiectat și construit plugin-ul oficial Claude Code al EverWorker</div>
+            <p>Builderii pot planifica, dezvolta, testa și opera EverWorker Agentic Workflows, AI Workers, Schedules, Webhooks, Code Nodes, Memories, Collections și altele — totul din interiorul Claude Code.</p>
+            <ul>
+              <li>Peste 50 de instrumente MCP care acoperă întreaga suprafață de lucru (CRUD, execuție, drill-down), controlate pe bază de rol.</li>
+              <li>Skill-uri pentru fiecare flux de lucru al builderului.</li>
+              <li>Un instrument personalizat de agregare MongoDB care permite utilizatorilor să realizeze analize complexe.</li>
+            </ul>
+          </div>
+
+          <div class="subrole">Software Engineer</div>
+          <ul>
+            <li>Contribui direct la platforma de bază, dezvoltând servicii backend, API-uri și interfețe frontend folosind JavaScript, ReactJS și MeteorJS.</li>
+            <li>Construiesc infrastructura care alimentează execuția agenților, integrările și scalabilitatea multi-tenant, punând accent pe performanță, mentenabilitate și toleranță la erori.</li>
+          </ul>
+
+          <div class="techstack"><span class="k">TEHNOLOGII</span><div class="chips"><span class="chip">JavaScript/TypeScript</span><span class="chip">ReactJS</span><span class="chip">MeteorJS</span><span class="chip">Node.js</span><span class="chip">LLM APIs (OpenAI/Anthropic)</span><span class="chip">RAG</span><span class="chip">Vector DBs</span><span class="chip">Tool Calling</span><span class="chip">REST/GraphQL</span><span class="chip">Docker</span><span class="chip">MongoDB</span></div></div>
+        </div>
+      </div>
+
+      <div class="job">
+        <div class="job-head light">
+          <span class="co">UiPath</span>
+          <span class="role">Solutions Architect</span>
+          <span class="when"><b>11/2018 – 03/2025</b><br>București, România</span>
+        </div>
+        <div class="job-body">
+          <p>Am început la UiPath ca RPA Developer și am trecut apoi în rolul de Solutions Architect. De-a lungul timpului, am fost implicat în proiecte de automatizare pentru clienți mici, medii și mari, precum și în proiecte interne. Am lucrat cu aproape toate produsele UiPath, dar acestea sunt principalele mele specializări RPA:</p>
+          <ul class="cols">
+            <li>Toate ariile Core RPA</li>
+            <li>Toate funcționalitățile UiPath Orchestrator și ale platformei Cloud</li>
+            <li>Integrare cu orice tip de sisteme externe</li>
+            <li>Chatbot-uri</li>
+            <li>Integrare ML</li>
+            <li>Integrare PowerBI</li>
+            <li>Activități și biblioteci personalizate</li>
+            <li>Pipeline-uri CI/CD în GitHub</li>
+            <li>Susținerea de sesiuni de training RPA pentru clienții UiPath</li>
+          </ul>
+          <div class="subrole">Inițiative AI · din 2024</div>
+          <ul>
+            <li>Am proiectat, gestionat și dezvoltat un proiect AI pentru Intel, care a câștigat cel mai important premiu UiPath din 2024: UiPath AI10.</li>
+            <li>M-am alăturat echipei de ML pentru a ajuta la construirea instrumentelor Autopilot ale UiPath.</li>
+            <li>Am făcut parte din prima echipă Agentică a UiPath, lucrând la construirea viitorului viziunii AI a companiei.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="job">
+        <div class="job-head light">
+          <span class="co">ABS Laundry Business Solutions</span>
+          <span class="role">Java Developer &amp; Scrum Master</span>
+          <span class="when"><b>10/2014 – 11/2018</b><br>București, România</span>
+        </div>
+        <div class="job-body">
+          <p>Scrum Master + Dezvoltator Java &amp; Web pentru un proiect DevOps. De asemenea, implicat în proiecte noi de dezvoltare și în echipe de mentenanță și suport.</p>
+          <div class="techstack"><span class="k">TEHNOLOGII</span><div class="chips"><span class="chip">Java 8</span><span class="chip">Spring Boot</span><span class="chip">Spring MVC</span><span class="chip">REST</span><span class="chip">SOAP</span><span class="chip">Android</span><span class="chip">JSP / JSF</span><span class="chip">HTML / CSS / JS</span><span class="chip">jQuery</span><span class="chip">Oracle SQL</span><span class="chip">Agile</span></div></div>
+        </div>
+      </div>
+
+      <div class="job plain">
+        <div class="subrole" style="margin-top:0">Anterior</div>
+        <div class="earlier">
+          <div class="row"><div><span class="co">AFY Communications</span><span class="role">PR Consultant</span></div><span class="when">06/2012 – 10/2014</span></div>
+          <div class="row"><div><span class="co">DallNet</span><span class="role">IT Support</span></div><span class="when">06/2008 – 08/2008</span></div>
+        </div>
+      </div>
+
+  <div class="grid2">
+    <div class="card keep">
+      <div class="card-head"><span class="idx">04</span><span class="name">Educație</span></div>
+      <div class="card-body edu">
+        <div><b>Diplomă de Inginer, Inginerie Electrică și Electronică</b></div>
+        <div class="school">Facultatea de Electronică, Politehnica</div>
+        <div class="when">2010 – 2014</div>
+      </div>
+    </div>
+    <div class="card keep">
+      <div class="card-head"><span class="idx">05</span><span class="name">Certificări</span></div>
+      <div class="card-body">
+        <ul class="certs">
+          <li>Cambridge Advanced English (CAE)</li>
+          <li>Oracle Certified Associate, Java SE 8 Programmer</li>
+          <li>UiPath Certified RPA Developer</li>
+          <li>UiPath Certified RPA Solution Architect</li>
+        </ul>
       </div>
     </div>
   </div>
