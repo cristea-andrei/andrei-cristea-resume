@@ -150,6 +150,27 @@
 
   .job.compact { page-break-inside: avoid; break-inside: avoid; }
 
+  /* ---------- stack grid ---------- */
+  .stack { page-break-inside: avoid; break-inside: avoid; }
+  .stack-row {
+    display: flex;
+    gap: 12px;
+    align-items: baseline;
+    margin-bottom: 4px;
+  }
+  .stack-label {
+    flex: 0 0 104px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 8.4px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.9px;
+    color: var(--accent);
+    line-height: 1.7;
+  }
+  .stack-val { flex: 1; font-size: 9.6px; }
+  .stack-val i { font-style: normal; color: var(--muted); }
+
   /* ---------- footer columns ---------- */
   .two-col { display: flex; gap: 28px; }
   .two-col .col { flex: 1; }
@@ -179,6 +200,26 @@
     <p>I enjoy a good challenge, working across diverse technologies, and learning new things. My background spans across Backend, Frontend and Mobile development, and automation architecture.</p>
     <p>In my free time, I love building things with NodeJS, Python, Flutter, and Machine Learning.</p>
     <p>Recently, my focus has shifted heavily toward AI and Agentic Architecture, where I enjoy exploring, prototyping, and pushing the boundaries of what intelligent, self-directed systems can achieve.</p>
+  </div>
+
+  <div class="section stack">
+    <div class="section-title">AI &amp; Agentic Stack</div>
+    <div class="stack-row">
+      <div class="stack-label">AWS AI</div>
+      <div class="stack-val">Amazon Bedrock (model access, Converse API, Knowledge Bases, Guardrails), Bedrock AgentCore (Runtime, Memory, Gateway, Identity), Strands Agents SDK — prototype agents built end-to-end on this stack.</div>
+    </div>
+    <div class="stack-row">
+      <div class="stack-label">SDKs &amp; Frameworks</div>
+      <div class="stack-val">Anthropic Agent SDK, Model Context Protocol (MCP), Claude Code plugins &amp; skills, OpenAI APIs. <i>Familiar with LangChain, LangGraph and CrewAI.</i></div>
+    </div>
+    <div class="stack-row">
+      <div class="stack-label">Agent Patterns</div>
+      <div class="stack-val">Multi-agent orchestration, tool/function calling, planner–executor loops, memory &amp; state management, structured outputs, guardrails, human-in-the-loop, evaluation and tracing.</div>
+    </div>
+    <div class="stack-row">
+      <div class="stack-label">Retrieval &amp; Data</div>
+      <div class="stack-val">RAG pipelines, embeddings and vector search, chunking and re-ranking strategies, MongoDB, OpenSearch.</div>
+    </div>
   </div>
 
   <div class="section">

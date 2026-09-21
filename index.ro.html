@@ -150,6 +150,27 @@
 
   .job.compact { page-break-inside: avoid; break-inside: avoid; }
 
+  /* ---------- stack grid ---------- */
+  .stack { page-break-inside: avoid; break-inside: avoid; }
+  .stack-row {
+    display: flex;
+    gap: 12px;
+    align-items: baseline;
+    margin-bottom: 4px;
+  }
+  .stack-label {
+    flex: 0 0 104px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 8.4px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.9px;
+    color: var(--accent);
+    line-height: 1.7;
+  }
+  .stack-val { flex: 1; font-size: 9.6px; }
+  .stack-val i { font-style: normal; color: var(--muted); }
+
   /* ---------- footer columns ---------- */
   .two-col { display: flex; gap: 28px; }
   .two-col .col { flex: 1; }
@@ -179,6 +200,26 @@
     <p>Îmi plac provocările, munca cu tehnologii diverse și învățarea de lucruri noi. Experiența mea acoperă dezvoltarea Backend, Frontend și Mobile, precum și arhitectura de automatizare.</p>
     <p>În timpul liber, îmi place să construiesc lucruri cu NodeJS, Python, Flutter și Machine Learning.</p>
     <p>Recent, m-am concentrat puternic pe AI și Arhitectură Agentică, unde îmi place să explorez, să prototipez și să împing limitele a ceea ce pot realiza sistemele inteligente și autonome.</p>
+  </div>
+
+  <div class="section stack">
+    <div class="section-title">Stack AI &amp; Agentic</div>
+    <div class="stack-row">
+      <div class="stack-label">AWS AI</div>
+      <div class="stack-val">Amazon Bedrock (acces la modele, Converse API, Knowledge Bases, Guardrails), Bedrock AgentCore (Runtime, Memory, Gateway, Identity), Strands Agents SDK — agenți prototip construiți cap-coadă pe acest stack.</div>
+    </div>
+    <div class="stack-row">
+      <div class="stack-label">SDK &amp; Frameworks</div>
+      <div class="stack-val">Anthropic Agent SDK, Model Context Protocol (MCP), plugin-uri și skill-uri Claude Code, API-uri OpenAI. <i>Familiarizat cu LangChain, LangGraph și CrewAI.</i></div>
+    </div>
+    <div class="stack-row">
+      <div class="stack-label">Tipare agentice</div>
+      <div class="stack-val">Orchestrare multi-agent, tool/function calling, bucle planner–executor, gestionarea memoriei și a stării, structured outputs, guardrails, human-in-the-loop, evaluare și tracing.</div>
+    </div>
+    <div class="stack-row">
+      <div class="stack-label">Retrieval &amp; Date</div>
+      <div class="stack-val">Pipeline-uri RAG, embeddings și căutare vectorială, strategii de chunking și re-ranking, MongoDB, OpenSearch.</div>
+    </div>
   </div>
 
   <div class="section">
