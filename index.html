@@ -258,7 +258,7 @@
   <div class="card keep">
     <div class="card-head"><span class="idx">01</span><span class="name">Summary</span></div>
     <div class="card-body">
-      <p>I like impossible projects and learning new things. After 12 years across backend, frontend, mobile, and RPA, I now spend nearly all my time on AI and agentic systems: design, prototypes, and real, useful agents inside enterprise platforms.</p>
+      <p>I like impossible projects and learning new things. After 12 years across backend, frontend, mobile, and RPA, I now spend nearly all my time on AI and agentic systems: design, prototypes, and real, useful agents inside enterprise platforms. Currently building production agentic systems for Hilti Group on Amazon Bedrock AgentCore.</p>
       <p>Highlights: UiPath's AI10 award in 2024 for the Intel project, and EverWorker's official Claude Code plugin.</p>
     </div>
   </div>
@@ -270,25 +270,25 @@
         <div class="stack-label">AWS AI</div>
         <div class="stack-val">
           <div class="chips"><span class="chip">Amazon Bedrock</span><span class="chip">Converse API</span><span class="chip">Knowledge Bases</span><span class="chip">Guardrails</span><span class="chip">AgentCore Runtime</span><span class="chip">AgentCore Memory</span><span class="chip">AgentCore Gateway</span><span class="chip">AgentCore Identity</span><span class="chip">Strands Agents SDK</span></div>
-          <div class="stack-note">Prototype agents built end-to-end on this stack.</div>
+          <div class="stack-note">Production agents on AgentCore at Hilti; prototype agents built end-to-end across this stack.</div>
         </div>
       </div>
       <div class="stack-row">
         <div class="stack-label">SDKs &amp; Frameworks</div>
         <div class="stack-val">
-          <div class="chips"><span class="chip">Anthropic Agent SDK</span><span class="chip">Model Context Protocol (MCP)</span><span class="chip">Claude Code plugins &amp; skills</span><span class="chip">OpenAI APIs</span><span class="chip soft">LangChain</span><span class="chip soft">LangGraph</span><span class="chip soft">CrewAI</span></div>
+          <div class="chips"><span class="chip">Anthropic Agent SDK</span><span class="chip">Model Context Protocol (MCP)</span><span class="chip">Claude Code plugins &amp; skills</span><span class="chip">OpenAI APIs</span><span class="chip">LangChain</span><span class="chip">LangGraph</span><span class="chip">AG-UI</span><span class="chip soft">CrewAI</span></div>
         </div>
       </div>
       <div class="stack-row">
         <div class="stack-label">Agent Patterns</div>
         <div class="stack-val">
-          <div class="chips"><span class="chip">Multi-agent orchestration</span><span class="chip">Tool / function calling</span><span class="chip">Planner–executor loops</span><span class="chip">Memory &amp; state</span><span class="chip">Structured outputs</span><span class="chip">Guardrails</span><span class="chip">Human-in-the-loop</span><span class="chip">Evaluation &amp; tracing</span></div>
+          <div class="chips"><span class="chip">Multi-agent orchestration</span><span class="chip">Tool / function calling</span><span class="chip">Role-based tool access</span><span class="chip">Context engineering</span><span class="chip">Planner–executor loops</span><span class="chip">Memory &amp; state</span><span class="chip">Structured outputs</span><span class="chip">Guardrails</span><span class="chip">Human-in-the-loop</span><span class="chip">LLM-judge &amp; deterministic evals</span><span class="chip">Tracing (Datadog LLM Observability)</span></div>
         </div>
       </div>
       <div class="stack-row">
         <div class="stack-label">Retrieval &amp; Data</div>
         <div class="stack-val">
-          <div class="chips"><span class="chip">RAG pipelines</span><span class="chip">Embeddings &amp; vector search</span><span class="chip">Chunking &amp; re-ranking</span><span class="chip">MongoDB</span><span class="chip">OpenSearch</span></div>
+          <div class="chips"><span class="chip">RAG pipelines</span><span class="chip">Embeddings &amp; vector search</span><span class="chip">Chunking &amp; re-ranking</span><span class="chip">Live API retrieval (GraphQL)</span><span class="chip">MongoDB</span><span class="chip">OpenSearch</span></div>
         </div>
       </div>
     </div>
@@ -300,17 +300,36 @@
 
       <div class="job">
         <div class="job-head">
+          <span class="co">Hilti Group</span>
+          <span class="role">Agentic AI Engineer</span>
+          <span class="when"><b>10/2026 – Present</b><br>Freelance · Remote (France)</span>
+        </div>
+        <div class="job-body">
+          <p>Design, build and evaluate production agentic systems for B2B e-commerce product Q&amp;A on Amazon Bedrock AgentCore, using LangChain/LangGraph and Python, delivered over AG-UI.</p>
+          <ul>
+            <li>Own the agent's context layer: grounding in structured product data, prompt contracts and size-bounded context, with large catalogue tables summarized and fetched on demand instead of truncated.</li>
+            <li>Design role-based tool access: schema-validated tool inputs, with tenant-sensitive values such as market and locale taken from validated runtime configuration rather than model-supplied arguments, preventing cross-market data leakage.</li>
+            <li>Build RAG that combines knowledge-base passages with live GraphQL product-catalogue retrieval for item-level data: kit contents, packaging quantities, weights and technical attributes.</li>
+            <li>Build offline evaluation pipelines pairing LLM-judge scoring against specialist-validated reference answers with deterministic evidence and provenance checks (right items, right product range, right market), enforced as CI quality gates.</li>
+            <li>Take Jira requirements through GitLab merge requests and CI (Ruff, pyright, pytest); investigate agent traces and tool calls with Datadog LLM Observability.</li>
+          </ul>
+          <div class="techstack"><span class="k">STACK</span><div class="chips"><span class="chip">Python</span><span class="chip">Amazon Bedrock AgentCore</span><span class="chip">LangChain</span><span class="chip">LangGraph</span><span class="chip">AG-UI</span><span class="chip">RAG</span><span class="chip">GraphQL</span><span class="chip">LLM-as-judge</span><span class="chip">Datadog LLM Observability</span><span class="chip">GitLab CI</span><span class="chip">pytest</span></div></div>
+        </div>
+      </div>
+
+      <div class="job">
+        <div class="job-head light">
           <span class="co">EverWorker</span>
           <span class="role">AI Solution Architect &amp; Software Developer</span>
-          <span class="when"><b>03/2025 – Present</b><br>Remote</span>
+          <span class="when"><b>03/2025 – 10/2026</b><br>Remote</span>
         </div>
         <div class="job-body">
           <div class="subrole">AI Solution Architect</div>
           <ul>
-            <li>Design and architect Agentic AI systems that autonomously execute multi-step workflows across enterprise tools.</li>
-            <li>Build scalable architectures combining LLMs, Retrieval-Augmented Generation (RAG), vector search, and structured tool/function calling to enable context-aware reasoning and reliable action-taking.</li>
-            <li>Define prompt frameworks, memory strategies, and orchestration layers that allow AI agents to interact with platforms such as Salesforce, Jira, Confluence, HubSpot, Slack, and Google Workspace.</li>
-            <li>Focus on reliability, determinism, and production-grade execution for real-world business automation.</li>
+            <li>Designed and architected Agentic AI systems that autonomously execute multi-step workflows across enterprise tools.</li>
+            <li>Built scalable architectures combining LLMs, Retrieval-Augmented Generation (RAG), vector search, and structured tool/function calling to enable context-aware reasoning and reliable action-taking.</li>
+            <li>Defined prompt frameworks, memory strategies, and orchestration layers that allow AI agents to interact with platforms such as Salesforce, Jira, Confluence, HubSpot, Slack, and Google Workspace.</li>
+            <li>Focused on reliability, determinism, and production-grade execution for real-world business automation.</li>
           </ul>
 
           <div class="subproject">
@@ -325,8 +344,8 @@
 
           <div class="subrole">Software Engineer</div>
           <ul>
-            <li>Contribute directly to the core platform, developing backend services, APIs, and frontend interfaces using JavaScript, ReactJS, and MeteorJS.</li>
-            <li>Build the infrastructure that powers agent execution, integrations, and multi-tenant scalability, emphasizing performance, maintainability, and fault tolerance.</li>
+            <li>Contributed directly to the core platform, developing backend services, APIs, and frontend interfaces using JavaScript, ReactJS, and MeteorJS.</li>
+            <li>Built the infrastructure that powers agent execution, integrations, and multi-tenant scalability, emphasizing performance, maintainability, and fault tolerance.</li>
           </ul>
 
           <div class="techstack"><span class="k">STACK</span><div class="chips"><span class="chip">JavaScript/TypeScript</span><span class="chip">ReactJS</span><span class="chip">MeteorJS</span><span class="chip">Node.js</span><span class="chip">LLM APIs (OpenAI/Anthropic)</span><span class="chip">RAG</span><span class="chip">Vector DBs</span><span class="chip">Tool Calling</span><span class="chip">REST/GraphQL</span><span class="chip">Docker</span><span class="chip">MongoDB</span></div></div>
